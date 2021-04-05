@@ -46,7 +46,7 @@ export class MovieListComponent implements OnInit {
 
   displayErrorAlert() {
     Swal.fire({
-      title: 'Error al obtener el listado. Intente nuevamente',
+      title: 'Error al obtener listado. Intente nuevamente',
       confirmButtonText: 'Aceptar',
       icon: 'error'
     });
