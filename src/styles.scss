@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+.c-pointer{
+  cursor: pointer;
+}
+
+.transformZoom {
+  transition: all 0.5s ease;
+  transform: scale(1.04);
+}

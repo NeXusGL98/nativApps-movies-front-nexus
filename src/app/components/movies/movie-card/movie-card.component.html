@@ -1,0 +1,45 @@
+<div class="card shadow animate__animated animate__fadeIn" (mouseenter)="mouseEntered=true"
+  (mouseleave)="mouseEntered=false" [ngClass]="mouseEntered?'transformZoom':''">
+
+  <ng-container *ngIf="type === 0">
+    <img [src]="movie.poster" style="max-height: 250px;" class="card-img-top" alt="Movie poster">
+    <div class="card-body">
+      <h5 class="card-title">{{movie.title}}</h5>
+    </div>
+  </ng-container>
+
+  <ul class="list-group list-group-flush text-break">
+
+    <ng-container *ngIf="type === 1 ">
+      <li class="list-group-item c-pointer">Nombre de la película:
+        <strong class="text-primary">
+          {{movie.title}}
+        </strong>
+      </li>
+      <li class="list-group-item c-pointer text-wrap">Poster:
+        <strong class="text-primary">
+          {{movie.poster}}
+        </strong>
+      </li>
+    </ng-container>
+
+    <li class="list-group-item c-pointer">Tipo:
+
+      <strong class="text-primary">
+        {{movie.type | movieType}}
+      </strong>
+    </li>
+    <li class="list-group-item c-pointer">Año:
+      <strong class="text-primary">
+        {{movie.year}}
+      </strong>
+    </li>
+
+    <!-- THIS WAS NOT REQUESTED BUT WE CAN SHOW IT IN ANY CASE
+    <li class="list-group-item c-pointer">imdbId:
+      <strong class="text-primary">
+        {{movie.imdbID}}
+      </strong>
+    </li> -->
+  </ul>
+</div>

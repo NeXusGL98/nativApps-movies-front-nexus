@@ -1,0 +1,8 @@
+<div class="row mb-4 justify-content-between align-items-center">
+  <div class="col-auto">
+    <input type="checkbox" (change)="onChange($event)" class="btn-check" id="btn-check-outlined" autocomplete="off">
+    <label class="btn btn-outline-primary" for="btn-check-outlined">
+      {{type === 0? 'List':'Grid'}} view
+    </label>
+  </div>
+</div>

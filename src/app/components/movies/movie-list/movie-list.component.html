@@ -1,0 +1,27 @@
+<div class="container">
+
+  <app-page-header header="Películas" [centered]="true"
+    description="Api encargada de mostrar películas filtradas por nombre 'Love' y año '2020'">
+  </app-page-header>
+
+  <hr>
+
+  <div *ngIf="$movies | async as movie; else loadingOrError" class="row">
+
+    <app-toolbar-view [type]="type" (onDataDisplay)="handleOnDataDisplay($event)"></app-toolbar-view>
+
+    <div *ngFor="let m of movie" class="d-flex justify-content-center mb-4"
+      [ngClass]="type === 0 ? 'col-sm-6 col-md-4':'col-12 mx-auto'">
+      <app-movie-card data-test="movie" [movie]=m [type]="type"></app-movie-card>
+    </div>
+  </div>
+
+  <ng-template #loadingOrError>
+    <div *ngIf="error;else isLoading" class="alert alert-dark" role="alert">
+      Hubo un problema al obtener las películas, por favor <strong (click)="getMovies()" class="alert-link c-pointer">reintente nuevamente</strong>
+    </div>
+    <ng-template #isLoading>
+      <spinner></spinner>
+    </ng-template>
+  </ng-template>
+</div>
